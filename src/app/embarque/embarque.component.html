@@ -1,0 +1,67 @@
+<div class="container">
+    <h1 class="text-center ">Embarque e Desembarque</h1>
+    <br>
+    <br>
+    <form [formGroup]='formEmbarque'>
+        <table>
+            <div class="form-group">
+                <tr>
+                    <th>
+                        <input type="text" id="matriculaid" class="form-control" required (change)='selectid()' placeholder="Matricula" autofocus/>
+                    </th>
+                <th>
+                </th>
+                    <th>
+                        <input type="text" id="nomeid" class="form-control" placeholder="Nome" required />
+                    </th>
+                </tr>
+            </div>
+        </table>
+        <table>
+            <div class="form-group">
+                <tr>
+                    <th>
+                        <input type="date" id="embarqueid" class="form-control" required />
+                    </th>
+                    <th>
+                        <button class="btn btn-primary" type="submit" (click)='embarque()' >Embarcar</button>                        
+                    </th>
+                </tr>
+            </div>
+        </table>
+        <table>
+            <div class="form-group">
+                <tr>
+                    <th>
+                        <input type="date" id="desembarqueid" class="form-control" required />
+                    </th>
+                    <th>
+                        <button class="btn btn-primary" type="submit" (click)='desembarque()' >Desembarcar</button>
+                    </th>
+                </tr>
+            </div>
+        </table>
+    </form>
+</div>
+<br>
+<br>
+<div class="container">
+    <h1 class="text-center">Horários de Embarque e Desembarque</h1>
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>NOME</th>
+                <th ng-controller="datCtrl">EMBARQUE</th>
+                <th ng-controller="datCtrl">DESEMBARQUE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-primary" routerLink="/home">Voltar</button>
+</div>

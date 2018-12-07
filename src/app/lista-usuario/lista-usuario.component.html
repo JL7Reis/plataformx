@@ -1,0 +1,24 @@
+<title>Lista de Usuários</title>
+    
+<div class="col-md-6 box-lista">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th class="hidden">Id</th>
+        <th>Nome</th>
+        <th>Função</th>
+        <th>Empresa</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td class="hidden">Id</td>
+        <td>Nome</td>
+        <td>Função</td>
+        <td>Empresa</td>
+      </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-primary" routerLink="/home">Voltar</button>
+  </div>
+

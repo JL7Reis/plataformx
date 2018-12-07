@@ -1,0 +1,30 @@
+<div class="container">
+
+  <div class="row box-cadastro">
+  <div class="col-12">
+    
+  <h1 class="text-center">Cadastrar Usuário</h1>
+  
+  <form class="mt-5" (ngSubmit)='cadastro()' [formGroup]='formCadastro'>
+  
+    <div class="form-group">
+      <input formControlName="nome" type="text" class="form-control cadastro" id="nomeid" aria-describedby="emailHelp" placeholder="Nome" required autofocus>
+    </div>
+    
+    <div class="form-group">
+      <input formControlName="funcao" type="text" class="form-control cadastro" id="funcaoid" placeholder="Função" required>
+    </div>
+    
+    <div class="form-group">
+      <input formControlName="empresa" type="text" class="form-control cadastro" id="empresaid" placeholder="Empresa" required>
+    </div>
+    
+    <button type="submit" class="btn btn-cadastro btn-lg">Cadastrar</button>
+  
+  </form>
+  
+  </div>
+  </div>
+  
+  <button class="btn btn-primary" routerLink="/home">Voltar</button>
+</div>
