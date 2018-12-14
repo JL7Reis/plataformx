@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { identity } from 'rxjs';
+import { Usuarios } from '../usuario/usuarios';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -16,11 +17,12 @@ export class CadastroUsuarioComponent implements OnInit {
   formCadastro;
   valoresForm;
   conversao;
+  private _usuarios = new Usuarios();
 
   ngOnInit() {
     this.formCadastro = this.fb.group({
       id: identity,
-      nome: [''],
+      nome: ['', Validators.required],
       funcao: [''],
       empresa: [''],
       embarque: [''],
@@ -36,6 +38,7 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   cadastro() {
+    this._usuarios.adiciona(this.valoresForm);
     this.conversao = JSON.stringify(this.valoresForm);
     this.formCadastro.id = localStorage.length + 1;
     localStorage.setItem(this.formCadastro.id, this.conversao);

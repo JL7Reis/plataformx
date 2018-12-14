@@ -1,0 +1,30 @@
+.wrapper-header {
+  height: 5vh;
+  padding: 5px;
+  background: #000000;
+  color: #ffffff;
+  box-shadow: 0 2px 5px -2px grey;
+}
+
+.title-header {
+  display: block;
+  font-size: 15px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-left: 15px;
+  padding: 0px;
+}
+
+@media screen and (min-width: 600px) {
+  .wrapper-header {
+    height: 7vh;
+  }
+
+  .title-header {
+    list-style: none;
+    display: inline;
+    position: relative;
+    margin: 25px;
+    top: 0px;
+    font-size: 25px;
+  }
+}

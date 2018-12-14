@@ -1,24 +1,22 @@
-<title>Lista de Usuários</title>
-    
-<div class="col-md-6 box-lista">
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th class="hidden">Id</th>
-        <th>Nome</th>
-        <th>Função</th>
-        <th>Empresa</th>
-      </tr>
+
+<div class="container">
+  <h1 class="text-center "> {{ title }} </h1>
+  <div class="text-center box-lista">
+    <table mdbTable class="box-lista table table-sm table-hover tag-listing-wrapper">
+      <thead class="black white-text">
+         <tr>
+          <th *ngFor="let head of headElements" scope="col"> {{head}} </th>
+        </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let usuario of usuarios">
-        <td class="hidden">Id</td>
-        <td>Nome</td>
-        <td>Função</td>
-        <td>Empresa</td>
-      </tr>
+        <tr mdbTableCol *ngFor="let el of array">
+          <th scope="row" order-by-pipe>{{el.id}}</th>
+          <td>{{el.nome}}</td>
+          <td>{{el.funcao}}</td>
+          <td>{{el.empresa}}</td>
+        </tr>
       </tbody>
     </table>
-    <button class="btn btn-primary" routerLink="/home">Voltar</button>
   </div>
-
+  <button class="btn btn-primary" routerLink="/home">Voltar</button>
+</div>

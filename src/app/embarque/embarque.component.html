@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 class="text-center ">Embarque e Desembarque</h1>
+    <h1 class="text-center ">  {{ title }} </h1>
     <br>
     <br>
     <form [formGroup]='formEmbarque'>
@@ -12,7 +12,7 @@
                 <th>
                 </th>
                     <th>
-                        <input type="text" id="nomeid" class="form-control" placeholder="Nome" required />
+                        <input type="text" id="nomeid" class="form-control" placeholder="Nome" readonly />
                     </th>
                 </tr>
             </div>
@@ -21,10 +21,10 @@
             <div class="form-group">
                 <tr>
                     <th>
-                        <input type="date" id="embarqueid" class="form-control" required />
+                        <input type="date" id="embarqueid" class="form-control" [readonly]=embarqueEdit />
                     </th>
                     <th>
-                        <button class="btn btn-primary" type="submit" (click)='embarque()' >Embarcar</button>                        
+                        <button class="btn btn-primary" type="submit" (click)='embarque()' [disabled]=embarqueEdit >Embarcar</button>                        
                     </th>
                 </tr>
             </div>
@@ -33,10 +33,10 @@
             <div class="form-group">
                 <tr>
                     <th>
-                        <input type="date" id="desembarqueid" class="form-control" required />
+                        <input type="date" id="desembarqueid" class="form-control" [readonly]=desembarqueEdit />
                     </th>
                     <th>
-                        <button class="btn btn-primary" type="submit" (click)='desembarque()' >Desembarcar</button>
+                        <button class="btn btn-primary" type="submit" (click)='desembarque()' [disabled]=desembarqueEdit >Desembarcar</button>
                     </th>
                 </tr>
             </div>
@@ -63,5 +63,6 @@
             </tr>
         </tbody>
     </table>
+    <app-lista-embarque></app-lista-embarque>
     <button class="btn btn-primary" routerLink="/home">Voltar</button>
 </div>

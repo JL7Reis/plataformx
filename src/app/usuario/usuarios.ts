@@ -2,13 +2,13 @@ import { Usuario } from './usuario';
 
 export class Usuarios {
 
-    private _usuarios: Usuario[] = [];
+    private _usuarios: string[] = [];
 
-    adiciona(usuario: Usuario): void {
+    adiciona(usuario: string): void {
         this._usuarios.push(usuario);
     }
 
-    paraArray(): Usuario[] {
+    paraArray(): string[] {
         return [].concat(this._usuarios);
     }
 }

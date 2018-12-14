@@ -17,12 +17,13 @@ export class EmbarqueComponent implements OnInit {
   formEmbarque;
   valoresForm;
   conversao;
-  userArray;
   embarcado;
   matricula;
   jparse;
   jstringify;
   embarq;
+  embarqueEdit: boolean = false;
+  desembarqueEdit: boolean = false;
 
   ngOnInit() {
     this.formEmbarque = this.fb.group({
@@ -39,50 +40,63 @@ export class EmbarqueComponent implements OnInit {
       debounceTime(1000))
       .subscribe(res => {
         this.valoresForm = res;
-      });
+    });
   }
 
   embarque() {
-    if ($('#matriculaid').val() == null) {
+    this.matricula = $('#matriculaid').val();
+    this.jparse = JSON.parse(localStorage.getItem(this.matricula));
+    if (this.jparse == null) {
       alert('Informe a matricula!');
     } else {
-      this.matricula = $('#matriculaid').val();
-      this.userArray = localStorage.getItem(this.matricula);
-      this.jparse = JSON.parse(this.userArray);
       this.embarq = this.jparse.embarcado = true;
       this.embarq = this.jparse.embarque = $('#embarqueid').val();
-      this.jstringify = JSON.stringify(this.jparse);
-      localStorage.setItem(this.matricula, this.jstringify);
-      alert('Embarque realizado!');
+      if (this.embarq === '') {
+        alert('Informe a data de embarque!');
+      } else {
+        this.jstringify = JSON.stringify(this.jparse);
+        localStorage.setItem(this.matricula, this.jstringify);
+        alert('Embarque realizado!');
+      }
     }
   }
 
   desembarque() {
-    if ($('#matriculaid').val() == null) {
+    this.matricula = $('#matriculaid').val();
+    this.jparse = JSON.parse(localStorage.getItem(this.matricula));
+    if (this.jparse == null) {
       alert('Informe a matricula!');
     } else {
-      this.matricula = $('#matriculaid').val();
-      this.userArray = localStorage.getItem(this.matricula);
-      this.jparse = JSON.parse(this.userArray);
       this.embarq = this.jparse.embarcado = false;
       this.embarq = this.jparse.desembarque = $('#desembarqueid').val();
-      this.jstringify = JSON.stringify(this.jparse);
-      localStorage.setItem(this.matricula, this.jstringify);
-      alert('Desembarque realizado!');
+      if (this.embarq === '') {
+        alert('Informe a data de desembarque!');
+      } else {
+        this.jstringify = JSON.stringify(this.jparse);
+        localStorage.setItem(this.matricula, this.jstringify);
+        alert('Desembarque realizado!');
+      }
     }
   }
 
   selectid() {
     this.matricula = $('#matriculaid').val();
-    this.userArray = localStorage.getItem(this.matricula);
-    this.jparse = JSON.parse(this.userArray);
+    this.jparse = JSON.parse(localStorage.getItem(this.matricula));
     if (this.jparse == null) {
       $('#nomeid').val('Matricula não existe.');
     } else {
       $('#nomeid').val(this.jparse.nome);
-    }
-    if (this.jparse.embarcado === false) {
-      $('#desembarqueid').off();
+      $('#embarqueid').val(this.jparse.embarque);
+      $('#desembarqueid').val(this.jparse.desembarque);
+      if (this.jparse.embarcado === true) {
+        console.log('Embarcado');
+        this.embarqueEdit = true;
+        this.desembarqueEdit = false;
+      } else {
+        console.log('Desembarcado');
+        this.desembarqueEdit = true;
+        this.embarqueEdit = false;
+      }
     }
   }
 }

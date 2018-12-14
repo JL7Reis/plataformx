@@ -16,6 +16,10 @@
       "es2017",
       "dom"
     ],
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "paths": {
+      "angular-6-datatable": ["../../.."],
+      "angular-6-datatable/*": ["../../../*"]
+}
   }
 }

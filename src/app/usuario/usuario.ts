@@ -32,7 +32,7 @@ export class Usuario {
         return this._embarcado;
     }
 
-    set setNome(nome: string) {
+    /* set setNome(nome: string) {
         this._nome = nome;
     }
 
@@ -54,6 +54,6 @@ export class Usuario {
 
     set setEmbarcado(embarcado: boolean) {
         this._embarcado = embarcado;
-    }
+    } */
 
 }
