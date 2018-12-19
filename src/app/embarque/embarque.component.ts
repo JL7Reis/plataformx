@@ -26,6 +26,9 @@ export class EmbarqueComponent implements OnInit {
   desembarqueEdit: boolean = false;
 
   ngOnInit() {
+
+    setInterval(() => { this.formEmbarque++; });
+
     this.formEmbarque = this.fb.group({
       id: identity,
       nome: [''],
@@ -89,11 +92,9 @@ export class EmbarqueComponent implements OnInit {
       $('#embarqueid').val(this.jparse.embarque);
       $('#desembarqueid').val(this.jparse.desembarque);
       if (this.jparse.embarcado === true) {
-        console.log('Embarcado');
         this.embarqueEdit = true;
         this.desembarqueEdit = false;
       } else {
-        console.log('Desembarcado');
         this.desembarqueEdit = true;
         this.embarqueEdit = false;
       }

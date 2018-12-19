@@ -31,29 +31,4 @@ export class Usuario {
     get isEmbarcado() {
         return this._embarcado;
     }
-
-    /* set setNome(nome: string) {
-        this._nome = nome;
-    }
-
-    set setFuncao(funcao: string) {
-        this._funcao = funcao;
-    }
-
-    set setEmpresa(empresa: string) {
-        this._empresa = empresa;
-    }
-
-    set setEmbarque(embarque: string) {
-        this._embarque = embarque;
-    }
-
-    set setDesembarque(desembarque: string) {
-        this._desembarque = desembarque;
-    }
-
-    set setEmbarcado(embarcado: boolean) {
-        this._embarcado = embarcado;
-    } */
-
 }

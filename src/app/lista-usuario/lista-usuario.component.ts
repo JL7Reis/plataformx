@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { UsuarioService } from '../usuario/usuario.service';
-import { Usuario } from '../usuario/usuario';
 
 @Component({
   selector: 'app-lista-usuario',
@@ -10,21 +7,31 @@ import { Usuario } from '../usuario/usuario';
 })
 export class ListaUsuarioComponent implements OnInit {
 
-  users: Usuario[];
+  title = 'Lista de Usuarios';
 
-  constructor(private router: Router) { }
+  headElements;
+  array: any = [];
+  order;
 
-  usuarios: Usuario[];
+  constructor() { }
 
   ngOnInit() {
-  //  this.usuarioService.getUsers()
-  //    .subscribe( data => {
-  //      this.users = data;
-  //    });
+
+    this.headElements = ['ID', 'Nome', 'Função', 'Empresa'];
+
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      const value = JSON.parse(localStorage[key]);
+      Object.assign(value, {
+        id: key
+      });
+      this.array.push(value);
+    }
+    this.array.sort((a, b) => a.id.localeCompare(b.id));
+    console.log(this.array.sort((a, b) => a.id.localeCompare(b.id)));
   }
 
-  addUser(): void {
-    this.router.navigate(['add-user']);
+  public get sortedArray(): any[] {
+    return this.array.sort.id;
   }
-
 }

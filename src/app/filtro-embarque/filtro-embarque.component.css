@@ -1,23 +1,26 @@
 @import '../app.component.css';
 
-.box-cadastro {
+.box-mensagens {
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: start;
+}
+
+
+.btn-filtro {
+    width: 120px;
+}
+
+.box-filtro {
     margin: 30px;
     padding: 30px;
 }
 
-.cadastro {
+.filtro {
     padding: 10px;
     border: none;
     border-bottom: 2px solid #ddd;
     border-radius: 0;
     outline: none;
     height: 50px;
-}
-
-.btn-cadastro {
-    width: 120px;
-    display: block;
-    margin: 0 auto;
-    padding: 10px;
-    font-weight: bold;
 }

@@ -1,22 +1,22 @@
-
 <div class="container">
-  <h1 class="text-center "> {{ title }} </h1>
-  <div class="text-center box-lista">
-    <table mdbTable class="box-lista table table-sm table-hover tag-listing-wrapper">
-      <thead class="black white-text">
-         <tr>
-          <th *ngFor="let head of headElements" scope="col"> {{head}} </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr mdbTableCol *ngFor="let el of array">
-          <th scope="row" order-by-pipe>{{el.id}}</th>
-          <td>{{el.nome}}</td>
-          <td>{{el.funcao}}</td>
-          <td>{{el.empresa}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <button class="btn btn-primary" routerLink="/home">Voltar</button>
+    <div class="text-center box-lista">
+    <h1 class="text-center"> {{ title }} </h1>
+
+      <table mdbTable class="box-lista table table-sm table-hover tag-listing-wrapper">
+        <thead class="black white-text">
+          <tr>
+            <th *ngFor="let head of headElements" scope="col"> {{head}} </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr mdbTableCol *ngFor="let el of array">
+            <th scope="row" order-by-pipe>{{el.id}}</th>
+            <td>{{el.nome}}</td>
+            <td>{{el.funcao}}</td>
+            <td>{{el.empresa}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button class="btn btn-primary btn-back" routerLink="/home">Voltar</button>
 </div>

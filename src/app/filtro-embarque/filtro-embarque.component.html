@@ -1,0 +1,57 @@
+<div class="container">
+
+    <div class="text-center box-filtro">
+    <h1 class="text-center"> {{ title }} </h1>
+    <hr>
+
+    <table>
+        <div class="form-group">
+            <tr>
+                <th>
+                    <label> De </label>
+                </th>
+                <th>
+                    <input type="date" id="embarqueini" class="form-control" />
+                </th>
+                <th>
+                    <label> até </label>
+                </th>
+                <th>
+                    <input type="date" id="embarquefim" class="form-control" />
+                </th>
+                <th>
+                    <button class="btn btn-primary btn-filtro" type="submit" (click)='filtrar()' >Filtrar</button>
+                </th>
+            </tr>
+        </div>
+    </table>
+
+    <div class='box-mensagens'>
+        <th>
+            <tr>
+                <label> {{ mensagem }} {{ qtdfuncionario }}  </label>
+            </tr>
+            <tr>
+                <label> {{ quantitativo }}  </label>
+            </tr>
+        </th>
+    </div>
+
+    <table mdbTable class="box-filtro table table-sm table-hover tag-listing-wrapper">
+      <thead class="black white-text">
+        <tr>
+          <th *ngFor="let head of headElements" scope="col" > {{head}} </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr mdbTableCol *ngFor="let el of array">
+          <th scope="row" order-by-pipe>{{el.id}}</th>
+          <td>{{el.nome}}</td>
+          <td>{{el.embarque | date:'dd/MM/yyyy' }}</td>
+          <td>{{el.desembarque | date:'dd/MM/yyyy' }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  <button class="btn btn-primary btn-back" routerLink="/home">Voltar</button>
+</div>
